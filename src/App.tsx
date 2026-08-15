@@ -1,15 +1,38 @@
 import { useState } from "react";
 import "./App.css";
 
+// Composant for the login screen
+function LoginPage({ onLogin }: { onLogin: () => void }) {
+  return (
+    <div className="login-box">
+      <button type="button" onClick={onLogin}>
+        Login with Microsoft
+      </button>
+    </div>
+  );
+}
+
+// Composant for the landing screen once logged in
+function LandingPage({ onLogout }: { onLogout: () => void }) {
+  return (
+    <div className="landing-box">
+      <p>You are logged in!</p>
+      <button type="button" onClick={onLogout}>
+        Logout
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  function LoginMicrosoft() {
+  function handleLogin() {
     // Implement Microsoft login logic here
     setIsLoggedIn(true);
   }
-  //temp function or logout in the future
-  function LogoutMicrosoft() {
+
+  function handleLogout() {
     // Implement Microsoft logout logic here
     setIsLoggedIn(false);
   }
@@ -20,16 +43,9 @@ function App() {
         <h1>CrabeLauncher</h1>
 
         {isLoggedIn ? (
-          <>
-            <p>You are logged in!</p>
-            <button type="button" onClick={LogoutMicrosoft}>
-              Logout
-            </button>
-          </>
+          <LandingPage onLogout={handleLogout} />
         ) : (
-          <button type="button" onClick={LoginMicrosoft}>
-            Login with Microsoft
-          </button>
+          <LoginPage onLogin={handleLogin} />
         )}
       </main>
 
