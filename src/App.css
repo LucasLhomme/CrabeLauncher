@@ -95,6 +95,21 @@ button {
   margin-right: 5px;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.disclaimer {
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;

@@ -15,22 +15,30 @@ function App() {
   }
 
   return (
-    <main className="container">
-      <h1>CrabeLauncher</h1>
-      <p>CrabeLauncher is not affiliated with Mojang.</p>
+    <>
+      <main className="container">
+        <h1>CrabeLauncher</h1>
 
-      {isLoggedIn ? (
-        <>
-          <p>You are logged in!</p>
+        {isLoggedIn ? (
+          <>
+            <p>You are logged in!</p>
             <button type="button" onClick={LogoutMicrosoft}>
               Logout
             </button>
-        </> ) : (
-        <button type="button" onClick={LoginMicrosoft}>
-          Login with Microsoft
-        </button>
-      )}
+          </>
+        ) : (
+          <button type="button" onClick={LoginMicrosoft}>
+            Login with Microsoft
+          </button>
+        )}
       </main>
+
+      <footer>
+        <p className="disclaimer">
+          CrabeLauncher is not affiliated with Mojang.
+        </p>
+      </footer>
+    </>
   );
 }
 
